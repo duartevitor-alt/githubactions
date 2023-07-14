@@ -17,6 +17,7 @@ def requests_url(url: str, output: str) -> None:
 
 
 if __name__ == "__main__":
+    print("Git rules!")
     requests_url(
         "https://dummyjson.com/products",
         f"dummy_json_{datetime.now():%Y-%m-%d_%H_%M}.json"
