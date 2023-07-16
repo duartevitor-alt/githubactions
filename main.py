@@ -1,6 +1,7 @@
 import json
 import logging
 from datetime import datetime
+import projectfolder as pj
 
 import requests
 
@@ -17,8 +18,11 @@ def requests_url(url: str, output: str) -> None:
 
 
 if __name__ == "__main__":
-    print("Git rules!")
-    requests_url(
-        "https://dummyjson.com/products",
-        f"dummy_json_{datetime.now():%Y-%m-%d_%H_%M}.json"
-    )
+    logging.info("Getting start!")
+    logging.info("Application class instantiated!")
+
+    app: pj.Application = pj.Application()
+    output: pj.Output = pj.Output(3)
+
+    output.write_json(requests_url)
+    
