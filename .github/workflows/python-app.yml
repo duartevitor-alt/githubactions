@@ -60,13 +60,11 @@ jobs:
         # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
-    - name: Commit & Push changes
-      uses: actions-js/push@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+
     - name: commit
       run: |
         # Stage the file, commit and push
+        git remote set-url origin https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}
         git add .
         git commit -m "new data commit"
         git push origin main
