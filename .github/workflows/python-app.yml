@@ -44,6 +44,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        persist-credentials: false
+        fetch-depth: 0
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
@@ -61,10 +64,8 @@ jobs:
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
 
-    - name: commit
-      run: |
-        # Stage the file, commit and push
-        git remote set-url origin https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}
-        git add .
-        git commit -m "new data commit"
-        git push origin main
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
