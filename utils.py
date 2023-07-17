@@ -5,7 +5,7 @@ import requests
 
 def requests_url(url: str, 
                  output: str, 
-                 write_output: bool = True) -> None:
+                 write_output: bool = True) -> str | None:
     URL: str = url
     response = requests.get(url=URL).json()
     logging.info(response)
@@ -13,3 +13,5 @@ def requests_url(url: str,
     if write_output:
         with open(output, 'w') as file:
             file.write(json.dumps(response))
+    else:
+        return json.dumps(response)

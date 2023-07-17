@@ -14,4 +14,5 @@ if __name__ == "__main__":
     output: pj.Output = pj.Output(3)
 
     output.write_json(requests_url)
+    output.write_plain_text(requests_url)
     

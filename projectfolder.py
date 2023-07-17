@@ -31,3 +31,14 @@ class Output(Application):
             func("https://dummyjson.com/products",
                  f"{self.output_folder}/dummy_json_{datetime.now():%Y-%m-%d_%H_%M_%S}.json")
             sleep(2)
+
+    def write_plain_text(self, func):
+        for ind, _ in enumerate(range(self.regs)):
+            response_txt = func("https://dummyjson.com/products","", False)
+            output_file: str = f'dummy_json_{datetime.now():%Y-%m-%d_%H}.txt'
+            if ind == 0:
+                with open(output_file, 'w') as file:
+                    file.write(response_txt)
+            else:
+                with open(output_file, 'a') as file:
+                    file.write(response_txt)
