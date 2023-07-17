@@ -64,4 +64,4 @@ jobs:
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git add .
-        git commit -m "Add changes || git diff --quiet && git push origin main"
+        git commit -m "Add changes && git push origin main"
