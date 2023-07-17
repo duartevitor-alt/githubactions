@@ -45,8 +45,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
-        persist-credentials: false
-        fetch-depth: 0
+        token: ${{ secrets.GH_TOKEN }}
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
@@ -58,14 +57,10 @@ jobs:
     - name: Run main.py
       run: |
         python main.py 
-    - name: Commit files
+    - name: Commit and Push files
       run: |
-        git config --local user.email "vitordduarte95@gmail.com"
-        git config --local user.name "duartevitor-alt"
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
         git add . 
         git commit -m "Add changes"
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}
+        git push origin main
