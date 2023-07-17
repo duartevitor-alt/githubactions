@@ -53,8 +53,8 @@ jobs:
         run: |
           python main.py
       - name: Commit and Push files
-        uses: actions/commit@v2
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          author_name: github-actions[bot]
-          author_email: github-actions[bot]@users.noreply.github.com
-          message: Add changes
+          commit_message: Add changes
+          commit_user_name: github-actions[bot]
+          commit_user_email: github-actions[bot]@users.noreply.github.com
