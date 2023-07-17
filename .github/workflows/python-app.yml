@@ -60,9 +60,9 @@ jobs:
         python main.py 
     - name: Commit files
       run: |
-        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git commit add ."
+        git commit add . 
         git commit -m "Add changes"
     - name: Push changes
       uses: ad-m/github-push-action@master
