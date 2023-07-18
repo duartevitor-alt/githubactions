@@ -1,0 +1,12 @@
+name: deploy airflow
+on: workflow_dispatch
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get repo
+              uses: actions/checkout@v3
+            - name: Good afternoon
+              run: echo "Good afternoon" 
+            - name: Running the bash script
+              run: bash listdags.sh 
